@@ -1,19 +1,17 @@
-'use client'
-import { 
-  Play, Edit2, Trash2, 
-  
-} from 'lucide-react';
+"use client";
+import { Play, Edit2, Trash2 } from "lucide-react";
+import { Video } from "@/utils/types";
 
-const VideoCard: React.FC<{ video: Video; onEdit: (id: string) => void; onDelete: (id: string) => void }> = ({ 
-  video, 
-  onEdit, 
-  onDelete 
-}) => {
+const VideoCard: React.FC<{
+  video: Video;
+  onEdit: (id: string) => void;
+  onDelete: (id: string) => void;
+}> = ({ video, onEdit, onDelete }) => {
   return (
     <div className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition-shadow">
       <div className="relative group">
-        <img 
-          src={video.thumbnail} 
+        <img
+          src={video.thumbnail}
           alt={video.title}
           className="w-full h-32 object-cover"
         />
@@ -27,24 +25,28 @@ const VideoCard: React.FC<{ video: Video; onEdit: (id: string) => void; onDelete
         </div>
       </div>
       <div className="p-3">
-        <h3 className="font-semibold text-gray-800 text-sm mb-2 line-clamp-2">{video.title}</h3>
+        <h3 className="font-semibold text-gray-800 text-sm mb-2 line-clamp-2">
+          {video.title}
+        </h3>
         <div className="flex items-center justify-between">
-          <span className={`text-xs px-2 py-0.5 rounded-full ${
-            video.status === 'Published' 
-              ? 'bg-green-100 text-green-700' 
-              : 'bg-yellow-100 text-yellow-700'
-          }`}>
+          <span
+            className={`text-xs px-2 py-0.5 rounded-full ${
+              video.status === "Published"
+                ? "bg-green-100 text-green-700"
+                : "bg-yellow-100 text-yellow-700"
+            }`}
+          >
             {video.status}
           </span>
           <div className="flex gap-1.5">
-            <button 
+            <button
               onClick={() => onEdit(video.id)}
               className="p-1 hover:bg-gray-100 rounded transition-colors"
               title="Edit"
             >
               <Edit2 size={14} className="text-gray-600" />
             </button>
-            <button 
+            <button
               onClick={() => onDelete(video.id)}
               className="p-1 hover:bg-red-50 rounded transition-colors"
               title="Delete"
