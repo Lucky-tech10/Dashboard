@@ -23,6 +23,7 @@ import KnowledgeCard from "./KnowledgeCard";
 import { StatCard } from "@/utils/types";
 import { mockKnowledge } from "@/utils/data";
 import { Video } from "@/utils/types";
+import Charts from "./Chart";
 
 const Dashboard: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -172,7 +173,7 @@ const Dashboard: React.FC = () => {
                 <div className="relative z-10 flex flex-col justify-center">
                   <h1 className="text-xl font-bold mb-1">WELCOME</h1>
                   <h2 className="text-lg font-semibold mb-1">Nick Nnaemeka</h2>
-                  <p className="text-purple-100 text-xs max-w-xs">
+                  <p className="text-purple-100 text-xs max-w-67.5">
                     Your dashboard gives you views of key performance or Writing
                     in one spot
                   </p>
@@ -228,70 +229,7 @@ const Dashboard: React.FC = () => {
             </div>
 
             {/* Charts Section */}
-            <div className="grid grid-cols-1 lg:grid-cols-8 gap-6 mb-4">
-              <div className="lg:col-span-5 bg-purple-50 rounded-lg p-4">
-                <h3 className="font-semibold text-black text-sm mb-3">
-                  Words Used this Month
-                </h3>
-                <div className="h-32">
-                  <svg viewBox="0 0 400 120" className="w-full h-full">
-                    <polyline
-                      fill="none"
-                      stroke="#5225a0"
-                      strokeWidth="2"
-                      points="0,80 30,60 60,70 90,40 120,45 150,50 180,55 210,30 240,35 270,55 300,65 330,75 360,85 400,70"
-                    />
-                    <polyline
-                      fill="rgba(124, 58, 237, 0.1)"
-                      stroke="none"
-                      points="0,80 30,60 60,70 90,40 120,45 150,50 180,55 210,30 240,35 270,55 300,65 330,75 360,85 400,70 400,120 0,120"
-                    />
-                  </svg>
-                </div>
-              </div>
-
-              <div className="lg:col-span-3 bg-purple-50 border-2 border-purple-200 p-4">
-                <h3 className="font-semibold text-black text-sm mb-3">
-                  Speech to text
-                </h3>
-                <div className="flex items-center justify-center h-32">
-                  <div className="relative w-28 h-28">
-                    <svg className="transform -rotate-90 w-full h-full">
-                      <circle
-                        cx="56"
-                        cy="56"
-                        r="50"
-                        stroke="#b0c5ee"
-                        strokeWidth="14"
-                        fill="none"
-                      />
-                      <circle
-                        cx="56"
-                        cy="56"
-                        r="50"
-                        stroke="#43227c"
-                        strokeWidth="14"
-                        fill="none"
-                        strokeDasharray="314"
-                        strokeDashoffset="94.2"
-                        className="transition-all"
-                      />
-                    </svg>
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="relative flex items-center text-center">
-                        <span className="text-xs text-gray-500 -translate-y-3">
-                          30%
-                        </span>
-                        <div className="w-0.5 h-14 bg-gray-300 transform -translate-y-1 rotate-45" />
-                        <span className="text-base font-bold text-purple-900 translate-y-3">
-                          70%
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <Charts />
 
             {/* Knowledge Base + Videos Section */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
